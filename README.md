@@ -19,9 +19,13 @@ Kenni provides a standardized way to authenticate Icelandic users using their ke
 - **Kenni OIDC Authentication** with complete kennitala integration
 - **PostgreSQL** with Drizzle ORM and type-safe database operations
 - **JWT Sessions** using secure @oslojs cryptographic libraries
+- **T3 Environment Variables** - Runtime validation with type safety
+- **React Email Templates** - Beautiful, responsive email composition
+- **Toast Notifications** - Elegant user feedback with Sonner
+- **Tailwind Catalyst UI** - Production-ready component library
+- **Kennitala Validation** - Robust validation using is-kennitala by Már Örlygsson
 - **oxlint** - Ultra-fast Rust-based linting (replaces ESLint)
 - **Comprehensive Error Handling** with neverthrow functional patterns
-- **Tailwind CSS 4** with advanced component libraries
 - **Turbo Monorepo** with intelligent build caching
 - **Production Ready** - Vercel deployment optimized
 
@@ -35,6 +39,39 @@ Kenni provides a standardized way to authenticate Icelandic users using their ke
 │   ├── kenni/                # Kenni OIDC authentication package
 │   └── utils/                # Shared utilities with neverthrow
 ```
+
+## 🌐 Smart URL Management
+
+This template uses a clever pattern for URL construction that works seamlessly in both development and production:
+
+### The VERCEL_PROJECT_PRODUCTION_URL Pattern
+
+Instead of hardcoding `localhost:3000` for development URLs, this template uses `VERCEL_PROJECT_PRODUCTION_URL` throughout the codebase for constructing absolute URLs in:
+
+- **OAuth redirects** (Kenni authentication callbacks)
+- **Email templates** (password reset, welcome emails)
+- **API responses** (any absolute URLs returned to clients)
+
+### Why This Matters for Development
+
+When developing locally, you often need public URLs for testing:
+
+- **Cloudflare Tunnels**: `cloudflared tunnel --url http://localhost:3000` → `https://abc123.trycloudflare.com`
+- **LocalCan** (Mac): Exposes `localhost:3000` → `https://myapp.localcan.dev`
+
+**The Problem**: If your app uses these tunnel URLs directly, you'll get:
+
+- OAuth redirects to temporary tunnel URLs
+- Email links pointing to `*.trycloudflare.com`
+- Broken bookmarks when tunnels change
+
+**The Solution**: Set `VERCEL_PROJECT_PRODUCTION_URL=https://yourdomain.com` in development. Now:
+
+- OAuth redirects work correctly: `https://yourdomain.com/api/auth/callback`
+- Email links are production-ready: `https://yourdomain.com/dashboard`
+- Development closely mimics production URL behavior
+
+This pattern eliminates the common problem of accidentally sending tunnel URLs in production emails or having OAuth flows break between environments.
 
 ## 🛠️ Development Commands
 
@@ -132,7 +169,27 @@ export const users = pgTable("user", {
 });
 ```
 
-## 🧰 Utility Packages
+## 🧰 Utility Packages & Features
+
+### Email & Notifications
+
+- **React Email Templates**: Responsive email templates using `@react-email/components`
+- **Toast Notifications**: User feedback system with Sonner for elegant toast messages
+- **Postmark Integration**: Production email delivery with comprehensive logging
+
+### UI Components
+
+- **Tailwind Catalyst**: Production-ready component library from Tailwind Labs
+- **Headless UI**: Accessible, unstyled UI primitives for React
+- **Framer Motion**: Smooth animations and micro-interactions
+
+### Environment & Validation
+
+- **T3 Environment Variables**: Runtime validation with separate client/server schemas
+- **Kennitala Validation**: Robust Icelandic national ID validation using `is-kennitala` by Már Örlygsson
+- **Zod Schemas**: Type-safe runtime validation throughout the application
+
+## 🔧 Package Details
 
 ### @acme/kenni - Authentication Package
 
