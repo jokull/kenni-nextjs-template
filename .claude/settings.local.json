@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add:*)",
+      "Bash(mkdir:*)",
+      "Bash(pnpm create:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm type-check:*)",
+      "Bash(pnpm format:check:*)",
+      "Bash(pnpm format)",
+      "WebFetch(domain:orm.drizzle.team)",
+      "Bash(pnpm list:*)",
+      "WebFetch(domain:docs.sentry.io)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.solberg.is)",
+      "WebFetch(domain:turbo.build)",
+      "WebFetch(domain:docs.kenni.is)",
+      "WebFetch(domain:jwt.oslojs.dev)",
+      "WebFetch(domain:oauth2.oslojs.dev)",
+      "WebFetch(domain:auth.kenni.is)",
+      "WebFetch(domain:oslo.js.org)",
+      "WebFetch(domain:catalyst.tailwindui.com)",
+      "Bash(pnpm knip:*)",
+      "Bash(pnpm run format:*)",
+      "Bash(pnpm run lint:*)",
+      "WebFetch(domain:buildui.com)"
+    ],
+    "deny": []
+  }
+}

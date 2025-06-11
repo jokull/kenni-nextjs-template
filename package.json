@@ -1,0 +1,43 @@
+{
+  "name": "acme",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "Jökull Sólberg",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev db:up",
+    "format": "prettier --write \"*.{js,json,md,ts,mjs}\" && turbo format",
+    "format:check": "prettier --check \"*.{js,json,md,ts,mjs}\" && turbo format:check",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "tunnel": "cloudflared tunnel --config ~/.cloudflared/acme.yaml run --protocol http2",
+    "type-check": "turbo type-check"
+  },
+  "devDependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.28.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.2",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-drizzle": "^0.2.3",
+    "eslint-plugin-prettier": "^5.4.1",
+    "eslint-plugin-regexp": "^2.9.0",
+    "eslint-plugin-security": "^3.0.1",
+    "eslint-plugin-unicorn": "^59.0.1",
+    "globals": "^16.2.0",
+    "knip": "^5.60.2",
+    "oxlint": "^1.0.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-packagejson": "^2.5.15",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "turbo": "^2.5.4",
+    "typescript-eslint": "^8.33.1"
+  },
+  "packageManager": "pnpm@10.10.0"
+}

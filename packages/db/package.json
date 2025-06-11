@@ -1,0 +1,32 @@
+{
+  "name": "@acme/db",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:up": "docker compose up",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "oxlint --quiet",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "drizzle-orm": "^0.44.2",
+    "is-kennitala": "^1.0.8",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/pg": "^8.10.9",
+    "drizzle-kit": "^0.31.1",
+    "eslint": "^9.28.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.4.5"
+  }
+}

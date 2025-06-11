@@ -1,0 +1,8 @@
+{
+  "extends": ["../../oxlint-base.json"],
+  "plugins": ["typescript", "unicorn", "react", "jsx-a11y", "nextjs", "oxc"],
+  "ignorePatterns": ["node_modules", "dist", ".next", "**/*.d.ts"],
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "extends": ["oxlint-base.json"],
+  "ignorePatterns": ["apps", "packages"]
+}

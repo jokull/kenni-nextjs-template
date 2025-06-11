@@ -1,0 +1,24 @@
+{
+  "name": "@acme/kenni",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "oxlint --quiet",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acme/utils": "workspace:*",
+    "@oslojs/jwt": "^0.3.0",
+    "neverthrow": "^8.2.0",
+    "zod": "^3.25.56"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "eslint": "^9.28.0",
+    "typescript": "^5.4.5"
+  }
+}

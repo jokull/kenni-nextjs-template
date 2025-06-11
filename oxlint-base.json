@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "builtin": true,
+    "es2025": true,
+    "commonjs": true,
+    "node": true,
+    "shared-node-browser": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "pedantic": "error",
+    "perf": "warn",
+    "style": "error"
+  },
+  "rules": {
+    "eslint/max-lines-per-function": "off",
+    "eslint/max-nested-callbacks": "off",
+    "func-style": [
+      "error",
+      "declaration",
+      { "allowArrowFunctions": true, "allowNamedFunctions": true }
+    ],
+    "max-depth": "off",
+    "no-magic-numbers": "off",
+    "no-ternary": "off",
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": "off",
+    "sort-keys": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/no-null": "off",
+    "yoda": "off"
+  }
+}

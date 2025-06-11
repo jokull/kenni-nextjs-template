@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "DATABASE_URL",
+    "SESSION_SECRET",
+    "DOKOBIT_ACCESS_TOKEN",
+    "DOKOBIT_API_URL",
+    "NODE_ENV"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "type-check", "lint"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"],
+      "cache": false
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"]
+    },
+    "format": {
+      "outputs": []
+    },
+    "format:check": {},
+    "db:up": {
+      "cache": false,
+      "persistent": true
+    },
+    "//#tunnel": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

@@ -1,0 +1,55 @@
+import { cn } from "~/utils/classnames";
+
+import { Link } from "./link";
+
+export function Text({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"p">) {
+  return (
+    <p
+      data-slot="text"
+      {...props}
+      className={cn(className, "text-base/6 text-zinc-500 sm:text-sm/6")}
+    />
+  );
+}
+
+export function TextLink({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof Link>) {
+  return (
+    <Link
+      {...props}
+      className={cn(
+        className,
+        "data-hover:decoration-zinc-950 text-zinc-950 underline decoration-zinc-950/50",
+      )}
+    />
+  );
+}
+
+export function Strong({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"strong">) {
+  return (
+    <strong {...props} className={cn(className, "font-medium text-zinc-950")} />
+  );
+}
+
+export function Code({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"code">) {
+  return (
+    <code
+      {...props}
+      className={cn(
+        className,
+        "rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-0.5 text-sm font-medium text-zinc-950 sm:text-[0.8125rem]",
+      )}
+    />
+  );
+}
