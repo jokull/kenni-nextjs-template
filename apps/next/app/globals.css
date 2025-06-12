@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-react-aria-components";
 
 :root {
   --font-sans: var(--font-geist-sans);

@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-
-import { cn } from "~/utils/classnames";
+import { twMerge } from "tailwind-merge";
 
 function OpenMenuIcon() {
   return (
@@ -84,7 +83,7 @@ const StackedLayout = ({
 
   return (
     <div
-      className={cn(
+      className={twMerge(
         "relative isolate flex min-h-svh w-full flex-col bg-white lg:bg-zinc-100",
         className,
       )}

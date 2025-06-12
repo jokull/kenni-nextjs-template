@@ -1,18 +1,23 @@
 import React from "react";
 import {
-  TextArea as AriaTextArea,
   TextField as AriaTextField,
   type TextFieldProps as AriaTextFieldProps,
   type ValidationResult,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
 
-import { Description, fieldBorderStyles, FieldError, Label } from "./field";
+import {
+  Description,
+  fieldBorderStyles,
+  FieldError,
+  Input,
+  Label,
+} from "./field";
 import { composeTailwindRenderProps, focusRing } from "./utils";
 
-const textareaStyles = tv({
+const inputStyles = tv({
   extend: focusRing,
-  base: "border-2 rounded-md px-2 py-1.5 min-h-[80px] flex-1 min-w-0 outline outline-0 bg-white dark:bg-zinc-900 text-sm text-gray-800 dark:text-zinc-200 disabled:text-gray-200 dark:disabled:text-zinc-600 resize-vertical",
+  base: "border-2 rounded-md",
   variants: {
     isFocused: fieldBorderStyles.variants.isFocusWithin,
     isInvalid: fieldBorderStyles.variants.isInvalid,
@@ -20,22 +25,22 @@ const textareaStyles = tv({
   },
 });
 
-export interface TextAreaFieldProps extends AriaTextFieldProps {
+export interface TextFieldProps extends AriaTextFieldProps {
   label?: string;
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
   placeholder?: string;
-  rows?: number;
+  type?: string;
 }
 
-export function TextAreaField({
+export function TextField({
   label,
   description,
   errorMessage,
   placeholder,
-  rows,
+  type,
   ...props
-}: TextAreaFieldProps) {
+}: TextFieldProps) {
   return (
     <AriaTextField
       {...props}
@@ -45,16 +50,9 @@ export function TextAreaField({
       )}
     >
       {label && <Label>{label}</Label>}
-      <AriaTextArea
-        className={textareaStyles}
-        placeholder={placeholder}
-        rows={rows}
-      />
+      <Input className={inputStyles} placeholder={placeholder} type={type} />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </AriaTextField>
   );
 }
-
-// Backward compatibility export
-export const Textarea = TextAreaField;

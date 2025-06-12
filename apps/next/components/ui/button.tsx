@@ -7,39 +7,34 @@ import {
   composeRenderProps,
   type ButtonProps as AriaButtonProps,
 } from "react-aria-components";
-
-import { cn } from "~/utils/classnames";
+import { twMerge } from "tailwind-merge";
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors",
-    "data-[disabled]:pointer-events-none data-[disabled]:opacity-50 ",
-    "data-[focus-visible]:outline-none data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring data-[focus-visible]:ring-offset-2",
-    "focus-visible:outline-none",
+    "inline-flex items-center justify-center text-sm text-center transition rounded-lg border border-black/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] cursor-default bg-white",
+    "data-[disabled]:bg-gray-100 data-[disabled]:text-gray-300 data-[disabled]:border-black/5",
+    "data-[focus-visible]:outline-none data-[focus-visible]:ring-2 data-[focus-visible]:ring-blue-600 data-[focus-visible]:ring-offset-2",
   ],
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground data-[hovered]:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground data-[hovered]:bg-destructive/90",
-        outline:
-          "border border-input bg-background data-[hovered]:bg-accent data-[hovered]:text-accent-foreground",
+        primary:
+          "bg-blue-600 data-[hovered]:bg-blue-700 data-[pressed]:bg-blue-800 text-white",
         secondary:
-          "bg-secondary text-secondary-foreground data-[hovered]:bg-secondary/80",
-        ghost: "data-[hovered]:bg-accent data-[hovered]:text-accent-foreground",
-        link: "text-primary underline-offset-4 data-[hovered]:underline",
+          "bg-gray-100 data-[hovered]:bg-gray-200 data-[pressed]:bg-gray-300 text-gray-800",
+        destructive:
+          "bg-red-700 data-[hovered]:bg-red-800 data-[pressed]:bg-red-900 text-white",
+        icon: "border-0 p-1 flex items-center justify-center text-gray-600 data-[hovered]:bg-black/[5%] data-[pressed]:bg-black/10 data-[disabled]:bg-transparent",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "size-10",
+        default: "px-5 py-2",
+        sm: "px-3 py-1.5 text-xs",
+        lg: "px-6 py-3 text-base",
+        icon: "p-1",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "default",
     },
   },
@@ -54,7 +49,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <AriaButton
         className={composeRenderProps(className, (className) =>
-          cn(buttonVariants({ variant, size }), className),
+          twMerge(buttonVariants({ variant, size }), className),
         )}
         {...props}
         ref={ref}
