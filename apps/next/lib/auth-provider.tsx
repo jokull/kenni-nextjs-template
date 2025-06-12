@@ -4,11 +4,8 @@ import { createContext, use, type ReactNode } from "react";
 
 import type { ServerUser } from "./server-auth";
 
-// Auth state types
-export type User = ServerUser;
-
-export interface AuthContextValue {
-  user: User | null;
+interface AuthContextValue {
+  user: ServerUser | null;
   isAuthenticated: boolean;
   logout: () => void;
 }
@@ -25,7 +22,7 @@ export function useAuth(): AuthContextValue {
   return context;
 }
 
-export interface AuthProviderProps {
+interface AuthProviderProps {
   children: ReactNode;
   initialUser: ServerUser | null;
 }

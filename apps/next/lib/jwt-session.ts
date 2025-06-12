@@ -27,18 +27,11 @@ export const sessionSchema = z.object({
   sub: z.string(), // Subject (userId)
 });
 
-export type SessionData = z.infer<typeof sessionSchema>;
+type SessionData = z.infer<typeof sessionSchema>;
 
 // Session cookie configuration
 const COOKIE_NAME = "acme-session";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
-
-export type SessionError =
-  | { type: "no_session" }
-  | { type: "invalid_token" }
-  | { type: "expired_token" }
-  | { type: "invalid_signature" }
-  | { type: "malformed_payload" };
 
 /**
  * Create a JWT token for session data

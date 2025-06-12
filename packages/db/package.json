@@ -18,15 +18,12 @@
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
     "drizzle-orm": "^0.44.2",
-    "is-kennitala": "^1.0.8",
     "pg": "^8.11.3"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
     "@types/pg": "^8.10.9",
     "drizzle-kit": "^0.31.1",
-    "eslint": "^9.28.0",
-    "tsx": "^4.19.4",
     "typescript": "^5.4.5"
   }
 }

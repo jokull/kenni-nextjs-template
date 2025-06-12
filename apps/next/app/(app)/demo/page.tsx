@@ -1,5 +1,6 @@
 "use client";
 
+import { ContactForm } from "~/components/contact-form";
 import { Heading } from "~/components/ui/heading";
 import { useAuth, useUserInitials } from "~/lib/auth-provider";
 
@@ -54,6 +55,14 @@ export default function DemoPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="rounded-lg border bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-lg font-semibold">React Hook Form Demo</h2>
+          <p className="mb-6 text-sm text-zinc-600">
+            Form built with react-hook-form, Zod validation, and Catalyst UI components
+          </p>
+          <ContactForm />
         </div>
 
         <div className="rounded-lg border bg-white p-6 shadow-sm">

@@ -1,6 +1,12 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
+  workspaces: {
+    "apps/next": {
+      // Add scripts as entry points on top of Next.js plugin detection
+      entry: ["scripts/*.ts"],
+    },
+  },
   ignore: [
     // Build outputs and generated files
     "node_modules",
@@ -9,41 +15,23 @@ const config: KnipConfig = {
     ".next",
     "coverage",
     ".turbo",
-    // Scripts - utility scripts for development and deployment
-    "apps/next/scripts/**",
-    "packages/*/scripts/**",
-    "**/scripts/**",
-    // UI component library - keep all components for future use
+    // Template files - keep for developers to use
     "apps/next/components/ui/**",
-    // Example/demo files - keep for reference
     "apps/next/lib/example-usage.ts",
-    // Email utilities - future feature
-    "apps/next/lib/emails.ts",
-    "apps/next/lib/user-emails.ts",
-    "apps/next/emails/**",
-    // Documentation - important patterns and guides
-    "apps/next/docs/**",
-    "**/*.md",
     // Database migrations - keep all
     "packages/db/drizzle/**",
-    // Package build outputs
-    "packages/*/dist/**",
-    // Config and setup files
-    "**/eslint.config.*",
-    "**/tsconfig.json",
-    "**/package.json",
-    "**/next.config.*",
-    "**/tailwind.config.*",
-    "**/postcss.config.*",
-    "**/drizzle.config.*",
-    "**/prettier.config.*",
-    "**/turbo.json",
-    "**/pnpm-workspace.yaml",
-    // Utility files that might not be directly imported
-    "apps/next/utils/**",
-    // Sentry config files
-    "**/sentry.*.config.*",
-    "**/instrumentation.ts",
+  ],
+  ignoreDependencies: [
+    // Template dependencies - keep for developers to use
+    "@internationalized/date",
+    "react-aria",
+    "react-aria-components",
+    "remeda",
+    "usehooks-ts",
+  ],
+  ignoreBinaries: [
+    // External tools
+    "cloudflared",
   ],
 };
 

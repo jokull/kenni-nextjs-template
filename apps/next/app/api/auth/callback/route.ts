@@ -11,6 +11,7 @@ import { env } from "~/lib/env";
 import { createSession } from "~/lib/jwt-session";
 import { parseKennitalaSafe } from "~/lib/kennitala";
 import { toast } from "~/lib/toast-server";
+import { sendWelcomeEmailToUser } from "~/lib/user-emails";
 
 export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get("code");
@@ -76,6 +77,14 @@ export async function GET(request: NextRequest) {
         })
         .returning();
       user = newUsers[0]!;
+
+      if (env.NODE_ENV === "production") {
+        // TODO: Move welcome email to post-email-verification-flow
+        await sendWelcomeEmailToUser({
+          userId: user.id,
+          email: "user@acme.com",
+        });
+      }
     }
 
     // Log the Kenni login
