@@ -14,7 +14,6 @@
     "format:check": "prettier --check \"*.{js,json,md,ts,mjs}\" && turbo format:check",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
-    "tunnel": "cloudflared tunnel --config ~/.cloudflared/acme.yaml run --protocol http2",
     "type-check": "turbo type-check"
   },
   "devDependencies": {

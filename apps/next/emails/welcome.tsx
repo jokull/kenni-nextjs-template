@@ -31,7 +31,7 @@ export const WelcomeEmail = ({ name }: WelcomeEmailProps) => (
 
           <Text style={text}>
             Velkomin til Órslofs! Þú hefur skráð þig inn með öruggum hætti með
-            Dokobit rafrænum skilríkjum.
+            Kenni rafrænum skilríkjum.
           </Text>
 
           <Text style={text}>Þú getur nú:</Text>

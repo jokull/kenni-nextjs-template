@@ -22,7 +22,7 @@ Kenni provides a standardized way to authenticate Icelandic users using their ke
 - **T3 Environment Variables** - Runtime validation with type safety
 - **React Email Templates** - Beautiful, responsive email composition
 - **Toast Notifications** - Elegant user feedback with Sonner
-- **Tailwind Catalyst UI** - Production-ready component library
+- **React Aria Components** - Accessible, mobile-responsive UI components
 - **Kennitala Validation** - Robust validation using is-kennitala by Már Örlygsson
 - **oxlint** - Ultra-fast Rust-based linting (replaces ESLint)
 - **Comprehensive Error Handling** with neverthrow functional patterns
@@ -156,7 +156,9 @@ const { session, user } = await requiresAdminUser("/admin/users");
 ```typescript
 // User schema with kennitala support
 export const users = pgTable("user", {
-  id: text("id").primaryKey().$defaultFn(() => createId()),
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => createId()),
   personalCode: text("personal_code").unique().notNull(), // kennitala
   fullName: text("full_name").notNull(),
   birthDate: date("birth_date", { mode: "date" }),
@@ -179,9 +181,9 @@ export const users = pgTable("user", {
 
 ### UI Components
 
-- **Tailwind Catalyst**: Production-ready component library from Tailwind Labs
-- **Headless UI**: Accessible, unstyled UI primitives for React
-- **Framer Motion**: Smooth animations and micro-interactions
+- **React Aria Components**: WAI-ARIA compliant components with robust accessibility
+- **class-variance-authority**: Type-safe component variants with Tailwind CSS
+- **Mobile-responsive layouts**: Touch-friendly navigation with sidebar support
 
 ### Environment & Validation
 
@@ -196,7 +198,10 @@ export const users = pgTable("user", {
 Complete OIDC implementation with kennitala support:
 
 ```typescript
-import { createKenniAuthorizationUrl, exchangeCodeForTokens } from "@acme/kenni";
+import {
+  createKenniAuthorizationUrl,
+  exchangeCodeForTokens,
+} from "@acme/kenni";
 
 // Secure PKCE flow with state validation
 // JWT verification with RS256 algorithm

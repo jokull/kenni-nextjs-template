@@ -16,16 +16,14 @@ const config: KnipConfig = {
     "coverage",
     ".turbo",
     // Template files - keep for developers to use
-    "apps/next/components/ui/**",
     "apps/next/lib/example-usage.ts",
     // Database migrations - keep all
     "packages/db/drizzle/**",
   ],
   ignoreDependencies: [
     // Template dependencies - keep for developers to use
+    "postcss",
     "@internationalized/date",
-    "react-aria",
-    "react-aria-components",
     "remeda",
     "usehooks-ts",
   ],

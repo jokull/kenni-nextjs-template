@@ -99,7 +99,7 @@ pnpm db:studio
 ## Authentication Setup
 
 - **Cookie-based authentication** with iron-session
-- **Dokobit eID integration** for Baltic states authentication
+- **Kenni eID integration** for Iceland authentication
 - **T3 Environment validation** for type-safe env vars
 - **Route protection** with Next.js middleware
 - **React Context** for client-side auth state
@@ -111,7 +111,7 @@ pnpm db:studio
 3. Start database: `pnpm db:up`
 4. Push schema: `cd packages/db && pnpm db:push`
 5. Start development: `pnpm dev`
-6. Access protected routes after Dokobit authentication
+6. Access protected routes after Kenni authentication
 
 ## Developer Workflow
 

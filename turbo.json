@@ -5,8 +5,8 @@
   "globalEnv": [
     "DATABASE_URL",
     "SESSION_SECRET",
-    "DOKOBIT_ACCESS_TOKEN",
-    "DOKOBIT_API_URL",
+    "KENNI_ACCESS_TOKEN",
+    "KENNI_API_URL",
     "NODE_ENV"
   ],
   "tasks": {
@@ -33,10 +33,6 @@
     },
     "format:check": {},
     "db:up": {
-      "cache": false,
-      "persistent": true
-    },
-    "//#tunnel": {
       "cache": false,
       "persistent": true
     }

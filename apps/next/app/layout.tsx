@@ -9,7 +9,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Acme Monorepo",
   description:
-    "Modern TypeScript monorepo with Next.js, Drizzle ORM, and Dokobit authentication",
+    "Modern TypeScript monorepo with Next.js, Drizzle ORM, and Kenni authentication",
 };
 
 export default function RootLayout({

@@ -22,11 +22,12 @@
       "WebFetch(domain:oauth2.oslojs.dev)",
       "WebFetch(domain:auth.kenni.is)",
       "WebFetch(domain:oslo.js.org)",
-      "WebFetch(domain:catalyst.tailwindui.com)",
       "Bash(pnpm knip:*)",
       "Bash(pnpm run format:*)",
       "Bash(pnpm run lint:*)",
-      "WebFetch(domain:buildui.com)"
+      "WebFetch(domain:buildui.com)",
+      "WebFetch(domain:www.jollyui.dev)",
+      "WebFetch(domain:www.jollyui.dev)"
     ],
     "deny": []
   }
