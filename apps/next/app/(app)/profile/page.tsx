@@ -1,6 +1,5 @@
 "use client";
 
-import { Avatar } from "~/components/ui/avatar";
 import { Heading } from "~/components/ui/heading";
 import { useAuth, useUserInitials } from "~/lib/auth-provider";
 
@@ -19,7 +18,9 @@ export default function ProfilePage() {
       <div className="mt-8 space-y-6">
         {/* Profile Header */}
         <div className="flex items-center space-x-6">
-          <Avatar initials={userInitials} className="h-16 w-16 text-lg" />
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-zinc-100 text-lg font-medium text-zinc-600">
+            {userInitials}
+          </div>
           <div>
             <h2 className="text-2xl font-bold text-zinc-900">{user.name}</h2>
             <p className="capitalize text-zinc-600">{user.role}</p>

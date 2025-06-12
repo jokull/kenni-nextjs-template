@@ -5,8 +5,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Button } from "~/components/ui/button";
-import { Fieldset, FieldGroup, Field, Label } from "~/components/ui/fieldset";
-import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/field";
+import { FieldGroup, Fieldset } from "~/components/ui/fieldset";
+import { Input, TextField } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 
 const contactSchema = z.object({
@@ -30,9 +31,9 @@ export function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+
     console.log("Contact form submitted:", data);
-    
+
     // Reset form after successful submission
     reset();
   };
@@ -41,33 +42,33 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <Fieldset>
         <FieldGroup>
-          <Field>
+          <TextField isInvalid={!!errors.name}>
             <Label>Name</Label>
             <Input
               {...register("name")}
               type="text"
               placeholder="Your full name"
-              invalid={!!errors.name}
             />
             {errors.name && (
               <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
             )}
-          </Field>
+          </TextField>
 
-          <Field>
+          <TextField isInvalid={!!errors.email}>
             <Label>Email</Label>
             <Input
               {...register("email")}
               type="email"
               placeholder="your.email@example.com"
-              invalid={!!errors.email}
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+              <p className="mt-1 text-sm text-red-600">
+                {errors.email.message}
+              </p>
             )}
-          </Field>
+          </TextField>
 
-          <Field>
+          <TextField isInvalid={!!errors.message}>
             <Label>Message</Label>
             <Textarea
               {...register("message")}
@@ -75,13 +76,15 @@ export function ContactForm() {
               rows={4}
             />
             {errors.message && (
-              <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
+              <p className="mt-1 text-sm text-red-600">
+                {errors.message.message}
+              </p>
             )}
-          </Field>
+          </TextField>
         </FieldGroup>
       </Fieldset>
 
-      <Button type="submit" disabled={isSubmitting}>
+      <Button type="submit" isDisabled={isSubmitting}>
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
     </form>

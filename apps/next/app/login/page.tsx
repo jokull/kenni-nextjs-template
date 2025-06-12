@@ -83,7 +83,7 @@ export default async function Page(props: PageProps) {
 
         <div className="mt-8">
           <form action={startKenniAuth}>
-            <Button type="submit" color="dark/zinc" className="w-full">
+            <Button type="submit" className="w-full">
               Kenni Auðkenni
             </Button>
           </form>

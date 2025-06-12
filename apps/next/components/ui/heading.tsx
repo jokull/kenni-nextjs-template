@@ -1,33 +1,36 @@
+"use client";
+
+import * as React from "react";
+import {
+  Heading as AriaHeading,
+  type HeadingProps as AriaHeadingProps,
+} from "react-aria-components";
+
 import { cn } from "~/utils/classnames";
 
-type HeadingProps = {
+interface HeadingProps extends AriaHeadingProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
-} & React.ComponentPropsWithoutRef<"h1" | "h2" | "h3" | "h4" | "h5" | "h6">;
-
-export function Heading({ className, level = 1, ...props }: HeadingProps) {
-  const Element: `h${typeof level}` = `h${level}`;
-
-  return (
-    <Element
-      {...props}
-      className={cn(
-        className,
-        "text-2xl/8 font-semibold text-zinc-950 sm:text-xl/8",
-      )}
-    />
-  );
 }
 
-export function Subheading({ className, level = 2, ...props }: HeadingProps) {
-  const Element: `h${typeof level}` = `h${level}`;
-
+const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
   return (
-    <Element
-      {...props}
+    <AriaHeading
       className={cn(
+        "scroll-m-20 tracking-tight",
+        {
+          "text-4xl font-extrabold lg:text-5xl": level === 1,
+          "text-3xl font-semibold": level === 2,
+          "text-2xl font-semibold": level === 3,
+          "text-xl font-semibold": level === 4,
+          "text-lg font-semibold": level === 5,
+          "text-base font-semibold": level === 6,
+        },
         className,
-        "text-base/7 font-semibold text-zinc-950 sm:text-sm/6",
       )}
+      level={level}
+      {...props}
     />
   );
-}
+};
+
+export { Heading };
